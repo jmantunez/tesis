@@ -10,7 +10,7 @@ GPIO.setmode(GPIO.BCM)
 #Ahora definimos el pin GPIO 17 como salida
 GPIO.setup(17, GPIO.OUT)
 #Queremos que lo que contenga el for i in range se repita 5 veces
-for i in range(0,5):
+for i in range(0,10):
     # Asignamos valor logico alto para encenderlo
     GPIO.output(17, GPIO.HIGH)
     # Esperamos un segundo
