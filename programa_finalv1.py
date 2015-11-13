@@ -22,7 +22,7 @@ with picamera.PiCamera() as camera:
     while True:
         if GPIO.input(17):
             fehca = str(datetime.datetime.today())
-            camera.capture(fehca)
+            camera.capture(fehca + '.jpg')
         if GPIO.input(27):
             print('mover a algun lado')
         time.sleep(0.1)
