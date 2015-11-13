@@ -27,4 +27,5 @@ with picamera.PiCamera() as camera:
         if GPIO.input(27):
             camera.stop_preview()
             print('mover a algun lado')
+            break
         time.sleep(0.1)
