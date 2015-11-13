@@ -8,7 +8,7 @@ pwm.start(5)
 
 while True:
     try:
-        for angulo in range(0, 180):
+		for angulo in range(0, 180):
 	    angulo = float(angulo)/10.0 + 2.5
 	    print angulo
 	    pwm.ChangeDutyCycle(angulo)
