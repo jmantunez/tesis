@@ -22,7 +22,7 @@ with picamera.PiCamera() as camera:
     while True:
         if GPIO.input(17):
             fehca = str(datetime.datetime.today()) + '.jpg'
-            camera.capture('/fotos/' + fehca)
+            camera.capture('/home/pi/Desktop/tesis/tesis/fotos/' + fehca)
 
         if GPIO.input(27):
             camera.stop_preview()
