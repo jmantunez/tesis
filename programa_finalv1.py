@@ -2,7 +2,7 @@ import datetime
 import time
 import picamera
 import RPi.GPIO as GPIO
-
+import os
 GPIO.setmode(GPIO.BCM)
 
 # PWM
@@ -16,13 +16,15 @@ GPIO.setup(27, GPIO.IN)
 GPIO.setup(22, GPIO.IN)
 
 with picamera.PiCamera() as camera:
-    camera.resolution = (1024, 768)
+    camera.resolution = (800, 640)
     camera.start_preview()
 
     while True:
         if GPIO.input(17):
-            fehca = str(datetime.datetime.today())
-            camera.capture(fehca + '.jpg')
+            fehca = str(datetime.datetime.today()) + '.jpg'
+            camera.capture('/fotos/' + fehca)
+
         if GPIO.input(27):
+            camera.stop_preview()
             print('mover a algun lado')
         time.sleep(0.1)
