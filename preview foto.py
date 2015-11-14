@@ -1,4 +1,5 @@
 __author__ = 'Jose Miguel'
+#Se importan las librerias correspondientes
 import time
 import picamera
 
