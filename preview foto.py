@@ -3,6 +3,7 @@ __author__ = 'Jose Miguel'
 import time
 import picamera
 
+#agregar comentarios
 camera = picamera.PiCamera()
 try:
     camera.start_preview()
