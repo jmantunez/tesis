@@ -1,5 +1,5 @@
 __author__ = 'Jose Miguel'
-#Final
+#Final final
 #importar libreria GPIO
 import RPi.GPIO as GPIO
 #Importar libreria time
