@@ -1,23 +1,24 @@
 __author__ = 'Jose Miguel'
-#!usr/bin/env/ python
-#parpadea.py
-#importamos la libreria GPIO
+#Final 1
+#importar libreria GPIO
 import RPi.GPIO as GPIO
-#Importamos la libreria time
+#Importar libreria time
 import time
-#Definimos el modo BCM
+#Definir modo BCM
 GPIO.setmode(GPIO.BCM)
-#Ahora definimos el pin GPIO 17 como salida
+#Definicion del pin GPIO 17 como salida
 GPIO.setup(17, GPIO.OUT)
-#Queremos que lo que contenga el for i in range se repita 5 veces
+
+#La instruccion contenida en el for i in range se repetira 10 veces
 for i in range(0,10):
-    # Asignamos valor logico alto para encenderlo
+    # Se asigna valor logico alto para encenderlo
     GPIO.output(17, GPIO.HIGH)
-    # Esperamos un segundo
+    # Tiempo de espera
     time.sleep(1)
-    # Asignamos valor logico bajo para apagarlo
+    # Se asigna valor logico bajo para apagarlo
     GPIO.output(17, GPIO.LOW)
-    # Esperamos un segundo
+    # Tiempo de espera
     time.sleep(1)
-#Una vez termina las 5 repeticiones, liberamos el pin GPIO utilizado; en este caso el 17
+
+#Terminadas las 10 repeticiones, se libera el pin GPIO 17
 GPIO.cleanup()

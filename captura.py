@@ -7,4 +7,4 @@ with picamera.PiCamera() as camera:
     camera.start_preview()
     # Camera warm-up time
     time.sleep(2)
-    camera.capture('foo.jpg')
+    camera.capture('prueba captura.jpg')
