@@ -112,18 +112,18 @@ with picamera.PiCamera() as camera:
             control_servo_treshhold.cambiio_de_estado(False)
 
         # amarillo izquierda o derecha
-        '''
+
         if GPIO.input(22):
-            status = GPIO.input(27)
+            status =bool(GPIO.input(27))
             if control_servo_treshhold.cambiio_de_estado(status):
                 pwm_salida = control_servo.mover_izquierda()
-                pwm.ChangeDutyCycle(pwm_salida)
-                print(pwm_salida)
+                # pwm.ChangeDutyCycle(pwm_salida)
+                print(control_servo.angulo)
                 print('mover izquierda')
             else:
-                control_servo_treshhold.status = False
+                control_servo_treshhold.cambiio_de_estado(False)
         time.sleep(0.1)
-        '''
+
 
 
 
