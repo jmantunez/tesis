@@ -59,16 +59,6 @@ class ControlServoBotonAmarillo:
             return True
 
 
-class ControlServoBotonCamara:
-    def __init__(self, status=False):
-        self.status = status
-
-    def cambiio_de_estado(self, estado_boton):
-        if estado_boton == self.status:
-            return False
-        else:
-            self.status = estado_boton
-            return True
 
 
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 import os
 import sys
-import GPIO
+import RPi.GPIO as GPIO
 # Botones
 GPIO.setup(17, GPIO.IN)
 
@@ -23,6 +23,6 @@ while True:
         GPIO.clear()
         print(sys.path)
         os.system('programa_finalv1.py')
-    
+
 
 
