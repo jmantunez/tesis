@@ -109,7 +109,6 @@ with picamera.PiCamera() as camera:
                 pwm.ChangeDutyCycle(pwm_salida)
                 print(pwm_salida)
                 print('mover derecha')
-            break
         else:
             control_servo_treshhold.status = False
 
