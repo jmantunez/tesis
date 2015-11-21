@@ -21,7 +21,7 @@ class ControlServoBotonCamara:
 while True:
     if GPIO.input(17):
         status = bool(GPIO.input(17))
-        GPIO.clear()
+        GPIO.cleanup()
         print(sys.path)
         os.system('programa_finalv1.py')
 
