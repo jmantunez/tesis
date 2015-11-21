@@ -124,7 +124,6 @@ with picamera.PiCamera() as camera:
                 print('sacar foto')
                 fehca = str(datetime.datetime.today()) + '.jpg'
                 camera.capture('/home/pi/Desktop/tesis/tesis/fotos/' + fehca)
-                time.sleep(5)
             control_apagado.agregar_counter()
             if control_apagado.threshold:
                 print('apagar')
@@ -133,7 +132,6 @@ with picamera.PiCamera() as camera:
         else:
             control_apagado.reset_counter()
             control_servo_treshhold_camara.cambiio_de_estado(False)
-
 
         # rojo izquierda o derecha
         if GPIO.input(27):
