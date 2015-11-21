@@ -113,7 +113,7 @@ with picamera.PiCamera() as camera:
         else:
             control_apagado.reset_counter()
         '''
-        '''
+
         # rojo izquierda o derecha
         if GPIO.input(27):
             status = bool(GPIO.input(27))
@@ -124,7 +124,7 @@ with picamera.PiCamera() as camera:
                 print('mover derecha')
         else:
             control_servo_treshhold_rojo.cambiio_de_estado(False)
-        '''
+
         # amarillo izquierda o derecha
 
         if GPIO.input(22):
