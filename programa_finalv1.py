@@ -59,6 +59,18 @@ class ControlServoBotonAmarillo:
             return True
 
 
+class ControlServoBotonCamara:
+    def __init__(self, status=False):
+        self.status = status
+
+    def cambiio_de_estado(self, estado_boton):
+        if estado_boton == self.status:
+            return False
+        else:
+            self.status = estado_boton
+            return True
+
+
 
 class ControlServo:
     def __init__(self, angulo_inicial=90, limite_dercha=180, limite_izquierda=0, escalon=10):
@@ -90,9 +102,12 @@ class ControlServo:
     def transformar_angulo(angulo):
         return float(angulo)/10.0 + 2.5
 
-control_apagado = ContadorApagado(10)
+control_apagado = ContadorApagado(5)
+
 control_servo_treshhold_rojo = ControlServoBoton()
 control_servo_treshhold_amarillo = ControlServoBotonAmarillo()
+control_servo_treshhold_camara = ControlServoBotonCamara()
+
 control_servo = ControlServo(angulo_inicial=90, limite_dercha=180, limite_izquierda=0, escalon=10)
 
 
@@ -102,17 +117,20 @@ with picamera.PiCamera() as camera:
 
     while True:
         # verde 17/ palanca para arriba
-        '''
+
         if GPIO.input(17):
-            fehca = str(datetime.datetime.today()) + '.jpg'
-            camera.capture('/home/pi/Desktop/tesis/tesis/fotos/' + fehca)
+            status = bool(GPIO.input(17))
+            if control_servo_treshhold_camara.cambiio_de_estado(status):
+                fehca = str(datetime.datetime.today()) + '.jpg'
+                camera.capture('/home/pi/Desktop/tesis/tesis/fotos/' + fehca)
             control_apagado.agregar_counter()
             if control_apagado.threshold:
                 camera.stop_preview()
                 break
         else:
             control_apagado.reset_counter()
-        '''
+            control_servo_treshhold_camara.cambiio_de_estado(False)
+
 
         # rojo izquierda o derecha
         if GPIO.input(27):
