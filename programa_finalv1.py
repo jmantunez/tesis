@@ -83,7 +83,7 @@ control_servo = ControlServo(angulo_inicial=90, limite_dercha=180, limite_izquie
 
 
 with picamera.PiCamera() as camera:
-    camera.resolution = (800, 640)
+    camera.resolution = (600, 600)
     camera.start_preview()
 
     while True:
@@ -104,7 +104,7 @@ with picamera.PiCamera() as camera:
             if control_servo_treshhold.cambiio_de_estado(status):
                 pwm_salida = control_servo.mover_derecha()
                 pwm.ChangeDutyCycle(pwm_salida)
-                print('mover a algun lado')
+                print('mover derecha')
             break
         else:
             control_servo_treshhold.status = False
@@ -117,6 +117,7 @@ with picamera.PiCamera() as camera:
 
                 pwm_salida = control_servo.mover_izquierda()
                 pwm.ChangeDutyCycle(pwm_salida)
+                print('mover izquierda')
             else:
                 control_servo_treshhold.status = False
         time.sleep(0.1)
