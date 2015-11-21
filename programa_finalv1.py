@@ -47,6 +47,18 @@ class ControlServoBoton:
             self.status = estado_boton
             return True
 
+class ControlServoBotonAmarillo:
+    def __init__(self, status=False):
+        self.status = status
+
+    def cambiio_de_estado(self, estado_boton):
+        if estado_boton == self.status:
+            return False
+        else:
+            self.status = estado_boton
+            return True
+
+
 
 class ControlServo:
     def __init__(self, angulo_inicial=90, limite_dercha=180, limite_izquierda=0, escalon=10):
@@ -80,7 +92,7 @@ class ControlServo:
 
 control_apagado = ContadorApagado(10)
 control_servo_treshhold_rojo = ControlServoBoton()
-control_servo_treshhold_amarillo = copy.deepcopy(ControlServoBoton())
+control_servo_treshhold_amarillo = ControlServoBotonAmarillo()
 control_servo = ControlServo(angulo_inicial=90, limite_dercha=180, limite_izquierda=0, escalon=10)
 
 
@@ -116,7 +128,7 @@ with picamera.PiCamera() as camera:
         # amarillo izquierda o derecha
 
         if GPIO.input(22):
-            status =bool(GPIO.input(22))
+            status = bool(GPIO.input(22))
             print(status)
             if control_servo_treshhold_amarillo.cambiio_de_estado(status):
                 pwm_salida = control_servo.mover_izquierda()
