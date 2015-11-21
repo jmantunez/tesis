@@ -78,7 +78,8 @@ class ControlServo:
         return float(angulo)/10.0 + 2.5
 
 control_apagado = ContadorApagado(10)
-control_servo_treshhold = ControlServoBoton()
+control_servo_treshhold_rojo = ControlServoBoton()
+control_servo_treshhold_amarillo = ControlServoBoton()
 control_servo = ControlServo(angulo_inicial=90, limite_dercha=180, limite_izquierda=0, escalon=10)
 
 
@@ -103,25 +104,25 @@ with picamera.PiCamera() as camera:
         # rojo izquierda o derecha
         if GPIO.input(27):
             status = bool(GPIO.input(27))
-            if control_servo_treshhold.cambiio_de_estado(status):
+            if control_servo_treshhold_rojo.cambiio_de_estado(status):
                 pwm_salida = control_servo.mover_derecha()
                 # pwm.ChangeDutyCycle(pwm_salida)
                 print(control_servo.angulo)
                 print('mover derecha')
         else:
-            control_servo_treshhold.cambiio_de_estado(False)
+            control_servo_treshhold_rojo.cambiio_de_estado(False)
 
         # amarillo izquierda o derecha
 
         if GPIO.input(22):
             status =bool(GPIO.input(22))
-            if control_servo_treshhold.cambiio_de_estado(status):
+            if control_servo_treshhold_amarillo.cambiio_de_estado(status):
                 pwm_salida = control_servo.mover_izquierda()
                 # pwm.ChangeDutyCycle(pwm_salida)
                 print(control_servo.angulo)
                 print('mover izquierda')
             else:
-                control_servo_treshhold.cambiio_de_estado(False)
+                control_servo_treshhold_amarillo.cambiio_de_estado(False)
         time.sleep(0.1)
 
 
