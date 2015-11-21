@@ -88,6 +88,7 @@ with picamera.PiCamera() as camera:
 
     while True:
         # verde 17/ palanca para arriba
+        '''
         if GPIO.input(17):
             fehca = str(datetime.datetime.today()) + '.jpg'
             camera.capture('/home/pi/Desktop/tesis/tesis/fotos/' + fehca)
@@ -97,10 +98,12 @@ with picamera.PiCamera() as camera:
                 break
         else:
             control_apagado.reset_counter()
+        '''
 
         # rojo izquierda o derecha
         if GPIO.input(27):
             status = GPIO.input(27)
+            print(status)
             if control_servo_treshhold.cambiio_de_estado(status):
                 pwm_salida = control_servo.mover_derecha()
                 pwm.ChangeDutyCycle(pwm_salida)
@@ -111,6 +114,7 @@ with picamera.PiCamera() as camera:
             control_servo_treshhold.status = False
 
         # amarillo izquierda o derecha
+        '''
         if GPIO.input(22):
             status = GPIO.input(27)
             if control_servo_treshhold.cambiio_de_estado(status):
@@ -121,6 +125,7 @@ with picamera.PiCamera() as camera:
             else:
                 control_servo_treshhold.status = False
         time.sleep(0.1)
+        '''
 
 
 
