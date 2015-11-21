@@ -102,12 +102,11 @@ with picamera.PiCamera() as camera:
 
         # rojo izquierda o derecha
         if GPIO.input(27):
-            print('boton roko on')
             status = bool(GPIO.input(27))
             if control_servo_treshhold.cambiio_de_estado(status):
                 pwm_salida = control_servo.mover_derecha()
-                pwm.ChangeDutyCycle(pwm_salida)
-                print(pwm_salida)
+                # pwm.ChangeDutyCycle(pwm_salida)
+                print(control_servo.angulo)
                 print('mover derecha')
         else:
             control_servo_treshhold.cambiio_de_estado(False)
