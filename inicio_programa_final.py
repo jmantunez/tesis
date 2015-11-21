@@ -24,6 +24,7 @@ while True:
         GPIO.cleanup()
         print(sys.path)
         os.system('python ' + '/home/pi/Desktop/tesis/tesis/programa_finalv1.py')
+        GPIO.setmode(GPIO.BCM)
         GPIO.setup(17, GPIO.IN)
 
 
