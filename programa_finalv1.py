@@ -125,6 +125,9 @@ with picamera.PiCamera() as camera:
                 fehca = str(datetime.datetime.today()) + '.jpg'
                 camera.capture('/home/pi/Desktop/tesis/tesis/fotos/' + fehca)
             control_apagado.agregar_counter()
+            lista = ['*']*(control_apagado.contador_final - control_apagado.contador)
+            barra = ''.join(lista) + '\n'
+            print(barra)
             if control_apagado.threshold:
                 print('apagar')
                 camera.stop_preview()
