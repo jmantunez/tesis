@@ -121,10 +121,12 @@ with picamera.PiCamera() as camera:
         if GPIO.input(17):
             status = bool(GPIO.input(17))
             if control_servo_treshhold_camara.cambiio_de_estado(status):
+                print('sacar foto')
                 fehca = str(datetime.datetime.today()) + '.jpg'
                 camera.capture('/home/pi/Desktop/tesis/tesis/fotos/' + fehca)
             control_apagado.agregar_counter()
             if control_apagado.threshold:
+                print('apagar')
                 camera.stop_preview()
                 break
         else:
