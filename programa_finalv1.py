@@ -3,6 +3,7 @@ import time
 import picamera
 import RPi.GPIO as GPIO
 import os
+import copy
 GPIO.setmode(GPIO.BCM)
 
 # PWM
@@ -79,7 +80,7 @@ class ControlServo:
 
 control_apagado = ContadorApagado(10)
 control_servo_treshhold_rojo = ControlServoBoton()
-control_servo_treshhold_amarillo = ControlServoBoton()
+control_servo_treshhold_amarillo = copy.deepcopy(ControlServoBoton)
 control_servo = ControlServo(angulo_inicial=90, limite_dercha=180, limite_izquierda=0, escalon=10)
 
 
