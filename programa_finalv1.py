@@ -102,7 +102,7 @@ with picamera.PiCamera() as camera:
 
         # rojo izquierda o derecha
         if GPIO.input(27):
-            status = GPIO.input(27)
+            status = bool(GPIO.input(27))
             print(status)
             if control_servo_treshhold.cambiio_de_estado(status):
                 pwm_salida = control_servo.mover_derecha()
