@@ -3,6 +3,7 @@ import os
 import sys
 import RPi.GPIO as GPIO
 # Botones
+GPIO.setmode(GPIO.BCM)
 GPIO.setup(17, GPIO.IN)
 
 
