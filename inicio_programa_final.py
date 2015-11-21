@@ -23,7 +23,7 @@ while True:
         status = bool(GPIO.input(17))
         GPIO.cleanup()
         print(sys.path)
-        os.system('programa_finalv1.py')
-
+        os.system('/home/Desktop/tesis/tesis/programa_finalv1.py')
+        break
 
 
