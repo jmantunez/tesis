@@ -58,7 +58,7 @@ class ControlServo:
         return self.transformar_angulo(90)
 
     def mover_derecha(self):
-        if self.angulo + self.escalon >= self.limite_derecha:
+        if self.angulo + self.escalon > self.limite_derecha:
             return self.transformar_angulo(self.angulo)
 
         else:
@@ -66,7 +66,7 @@ class ControlServo:
             return self.transformar_angulo(self.angulo)
 
     def mover_izquierda(self):
-        if self.angulo - self.escalon <= self.limite_izquierda:
+        if self.angulo - self.escalon < self.limite_izquierda:
             return self.transformar_angulo(self.angulo)
 
         else:
@@ -114,7 +114,7 @@ with picamera.PiCamera() as camera:
         # amarillo izquierda o derecha
 
         if GPIO.input(22):
-            status =bool(GPIO.input(27))
+            status =bool(GPIO.input(22))
             if control_servo_treshhold.cambiio_de_estado(status):
                 pwm_salida = control_servo.mover_izquierda()
                 # pwm.ChangeDutyCycle(pwm_salida)
