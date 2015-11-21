@@ -100,10 +100,9 @@ with picamera.PiCamera() as camera:
             control_apagado.reset_counter()
         '''
 
-        status_btn_rojo = GPIO.input(27)
         # rojo izquierda o derecha
-        if status_btn_rojo:
-            status = bool(status_btn_rojo)
+        if GPIO.input(27):
+            status = bool(GPIO.input(27))
             if control_servo_treshhold.cambiio_de_estado(status):
                 pwm_salida = control_servo.mover_derecha()
                 # pwm.ChangeDutyCycle(pwm_salida)
@@ -114,18 +113,16 @@ with picamera.PiCamera() as camera:
 
         # amarillo izquierda o derecha
 
-        status_btn_amarillo = GPIO.input(22)
-        if status_btn_amarillo:
-            status = bool(status_btn_amarillo)
+        if GPIO.input(22):
+            status =bool(GPIO.input(22))
             if control_servo_treshhold.cambiio_de_estado(status):
-                pwm_salida = control_servo.mover_derecha()
+                pwm_salida = control_servo.mover_izquierda()
                 # pwm.ChangeDutyCycle(pwm_salida)
                 print(control_servo.angulo)
-                print('mover derecha')
-        else:
-            control_servo_treshhold.cambiio_de_estado(False)
-
-
+                print('mover izquierda')
+            else:
+                control_servo_treshhold.cambiio_de_estado(False)
+        time.sleep(0.1)
 
 
 
