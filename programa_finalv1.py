@@ -111,7 +111,7 @@ with picamera.PiCamera() as camera:
                 print(pwm_salida)
                 print('mover derecha')
         else:
-            control_servo_treshhold.status = False
+            control_servo_treshhold.cambiio_de_estado(False)
 
         # amarillo izquierda o derecha
         '''
