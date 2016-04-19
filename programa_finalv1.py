@@ -222,7 +222,7 @@ with picamera.PiCamera() as camera:
             # cambia el estado actual de la camaara a falso
             control_servo_treshhold_camara.cambiio_de_estado(False)
 
-        # rojo izquierda o derecha
+        # rojo derecha
         # revisa si el boton rojo esta presionad
         if GPIO.input(27):
             # guarda la variable del estado del boton en estatus
@@ -237,7 +237,7 @@ with picamera.PiCamera() as camera:
             # si de deja de presionar el boton cambioa el estado a falso
             control_servo_treshhold_rojo.cambiio_de_estado(False)
 
-        # amarillo izquierda o derecha
+        # amarillo izquierda
 
         if GPIO.input(22):
             status = bool(GPIO.input(22))

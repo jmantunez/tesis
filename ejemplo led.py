@@ -4,7 +4,7 @@ __author__ = 'Jose Miguel'
 import RPi.GPIO as GPIO
 #Importar libreria time
 import time
-#Definir modo BCM
+#Definir modo BCM para pines
 GPIO.setmode(GPIO.BCM)
 #Definicion del pin GPIO 17 como salida
 GPIO.setup(17, GPIO.OUT)
